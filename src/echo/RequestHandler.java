@@ -33,8 +33,6 @@ public class RequestHandler extends Correspondent implements Runnable {
                 // send response
                 // sleep
                 String response = response(request);
-                System.out.println("received: " + request);
-                System.out.println("sending: " + response);
                 send(response);
             } catch(Exception e) {
                 send(e.getMessage() + "... ending session");
