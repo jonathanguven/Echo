@@ -19,10 +19,12 @@ public class RequestHandler extends Correspondent implements Runnable {
     // any housekeeping can be done by an override of this:
     protected void shutDown() {
         if (Server.DEBUG) System.out.println("handler shutting down");
+        active = false;
     }
     public void run() {
         while(active) {
             try {
+                String request = receive();
                 // receive request
                 if(request.equals("quit")) {
                     shutDown();
@@ -30,6 +32,10 @@ public class RequestHandler extends Correspondent implements Runnable {
                 }
                 // send response
                 // sleep
+                String response = response(request);
+                System.out.println("received: " + request);
+                System.out.println("sending: " + response);
+                send(response);
             } catch(Exception e) {
                 send(e.getMessage() + "... ending session");
                 break;
