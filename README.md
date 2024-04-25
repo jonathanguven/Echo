@@ -1,1 +1,2 @@
-# A Client-Server Application for CS 151 - Object Oriented Design
+# Echo
+A Client-Server Application for CS 151 - Object Oriented Design
