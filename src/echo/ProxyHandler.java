@@ -19,7 +19,6 @@ public class ProxyHandler extends RequestHandler {
     }
 
     protected String response(String msg) throws Exception {
-        System.out.println("ProxyHandler received: " + msg);
         peer.send(msg);
         return peer.receive();
     }
