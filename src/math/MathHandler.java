@@ -41,7 +41,7 @@ public class MathHandler extends RequestHandler {
                     if (num == 0) {
                         return "Cannot divide by zero";
                     }
-                    result /= num;
+                    result /= (double) num;
                     break;
                 default:
                     return "Invalid operator. Must be add, sub, mul, or div.";
