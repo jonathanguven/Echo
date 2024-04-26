@@ -23,10 +23,15 @@ public class MathHandler extends RequestHandler {
         try {
             result = Double.parseDouble(parts[1]);
         } catch (NumberFormatException e) {
-            return "Invalid format";
+            return "Invalid format. Input must be numeric.";
         }
         for (int i = 2; i < parts.length; i++) {
-            double num = Double.parseDouble(parts[i]);
+            double num;
+            try {
+                num = Double.parseDouble(parts[i]);
+            } catch (NumberFormatException e) {
+                return "Invalid format. Input must be numeric.";
+            }
             switch (operator) {
                 case "add":
                     result += num;
