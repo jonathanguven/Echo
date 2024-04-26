@@ -6,19 +6,16 @@ public class ProxyServer extends Server {
 
     String peerHost;
     int peerPort;
-    private SafeTable<String, String> cache;
-
     public ProxyServer(int myPort, String service, int peerPort, String peerHost) {
         super(myPort,service);
         this.peerHost = peerHost;
         this.peerPort = peerPort;
-        cache = new SafeTable<>();
     }
 
     public RequestHandler makeHandler(Socket s) {
         // make a proxy handler and call initPeer
-        ProxyHandler handler = new ProxyHandler(s, cache);
-        handler.initPeer(peerHost, peerPort);
+        RequestHandler handler = super.makeHandler(s);
+        ((ProxyHandler) handler).initPeer(peerHost, peerPort);
         return handler;
     }
 
