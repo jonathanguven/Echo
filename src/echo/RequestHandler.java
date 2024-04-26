@@ -20,6 +20,7 @@ public class RequestHandler extends Correspondent implements Runnable {
     protected void shutDown() {
         if (Server.DEBUG) System.out.println("handler shutting down");
         active = false;
+        System.exit(0);
     }
     public void run() {
         while(active) {
