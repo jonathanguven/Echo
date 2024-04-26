@@ -16,6 +16,13 @@ public class SecurityHandler extends ProxyHandler {
         System.out.println("SecurityHandler created");
     }
 
+    public SecurityHandler() {
+        super();
+        this.users = new SafeTable<>();
+        this.loggedIn = false;
+        System.out.println("SecurityHandler created");
+    }
+
     @Override
     protected String response(String msg) throws Exception {
         String[] tokens = msg.split(" ");

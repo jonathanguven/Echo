@@ -13,6 +13,11 @@ public class CacheHandler extends ProxyHandler {
         this.cache = new SafeTable<>();
     }
 
+    public CacheHandler() {
+        super();
+        this.cache = new SafeTable<>();
+    }
+
     @Override
     protected String response(String msg) throws Exception {
         if (cache.containsKey(msg)) {
